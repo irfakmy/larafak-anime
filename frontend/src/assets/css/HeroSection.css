@@ -1,0 +1,13 @@
+.hero-section {
+    background-image: url("/images/hero-section.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Sesuaikan tinggi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  

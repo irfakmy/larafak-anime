@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { Menu, X } from "lucide-react"; // Íconos de menú
 
-import logo from "../../assets/larafak-new.png";
+import logo from "../../assets/img/larafak-new.png";
 
 const menuButtonClass =
   "text-lg font-medium text-white hover:text-orange-300 cursor-pointer hover:text-orange-300 active:text-yellow-300";
