@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import icon from "../../assets/arrow-right-white.svg";
 
 const DetailAnime = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [anime, setAnime] = useState(null);
   const [videos, setVideos] = useState([]);
   const [episodes, setEpisodes] = useState([]);
@@ -24,13 +26,20 @@ const DetailAnime = () => {
 
   if (!anime) return <p>Loading...</p>;
 
-
   const sortedEpisodes = [...episodes].sort((a, b) => a.number - b.number);
 
   return (
     <div className="bg-gray-900 min-h-screen p-10 text-white">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold">{anime.title}</h1>
+        <div className="flex items-center justify-between mb-5">
+          <h1 className="text-3xl font-bold">{anime.title}</h1>
+          <button
+            onClick={() => navigate("/popular")} // Gunakan navigate di sini
+            className="bg-gray-900 hover:bg-slate-700 text-white flex font-bold py-3 px-6 rounded"
+          >
+            Back to list<img src={icon} alt="" className="ml-2" />
+          </button>
+        </div>
         <img
           src={anime.images.jpg.image_url}
           alt={anime.title}

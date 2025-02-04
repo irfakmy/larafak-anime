@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"; 
-import icon from "../../assets/arrow-right-circle.svg";
+import icon from "../../assets/arrow-right-white.svg";
 import heroImage from "../../assets/img/hero-section.jpg";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
@@ -34,7 +34,7 @@ const HeroSection = () => {
               <div className="md:w-1/2">
                 <button
                   onClick={() => navigate("/popular")}
-                  className="bg-slate-700 hover:bg-slate-900 text-white flex font-bold py-3 px-6 rounded mt-30"
+                  className="bg-gray-900 hover:bg-slate-700 text-white flex font-bold py-3 px-6 rounded mt-30"
                 >
                   View Full Site <img src={icon} alt="" className="ml-2" />
                 </button>

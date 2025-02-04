@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import icon from "../assets/arrow-right-white.svg";
 import axios from "axios";
 
 const Index = () => {
@@ -20,7 +21,15 @@ const Index = () => {
 
   return (
     <div className="bg-gray-900 min-h-screen p-10 text-white">
-      <h1 className="text-3xl font-bold mb-5">Popular Anime</h1>
+  <div className="flex items-center justify-between mb-5">
+    <h1 className="text-3xl font-bold">Popular Anime</h1>
+    <button
+      onClick={() => navigate("/")}
+      className="bg-gray-900 hover:bg-slate-700 text-white flex font-bold py-3 px-6 rounded"
+    >
+      Back to home<img src={icon} alt="" className="ml-2" />
+    </button>
+  </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {animes.length > 0 ? (
           animes.map((anime) => (
