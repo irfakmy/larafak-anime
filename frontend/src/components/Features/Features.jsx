@@ -18,7 +18,8 @@ const Features = () => {
   }, []);
 
   return (
-    <main className="flex justify-center flex-col py-20 items-center bg-gray-900 min-h-screen border-t-2 border-white">
+    <div className="bg-gray-900">
+    <main className="flex justify-center flex-col py-20 items-center bg-gray-900 min-h-screen border-b-1 mx-20 border-white">
       {/* <h1 className="text-4xl font-bold mb-10 text-white">Top Rating Anime</h1> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {animes.length > 0 ? (
@@ -41,6 +42,7 @@ const Features = () => {
         )}
       </div>
     </main>
+    </div>
   );
 };
 
