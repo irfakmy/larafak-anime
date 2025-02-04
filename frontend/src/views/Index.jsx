@@ -4,13 +4,13 @@ import axios from "axios";
 
 const Index = () => {
   const [animes, setAnimes] = useState([]);
-  const navigate = useNavigate(); // Untuk navigasi
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/animes") // Mendapatkan data anime dari API Laravel
+      .get("http://127.0.0.1:8000/api/animes") 
       .then((response) => {
-        console.log(response.data); // Cek struktur data
+        console.log(response.data);
         setAnimes(response.data.data ? response.data.data.slice(0, 24) : []);
       })
       .catch((error) => {
@@ -27,7 +27,7 @@ const Index = () => {
             <div
               key={anime.mal_id}
               className="bg-gray-800 p-4 rounded-lg cursor-pointer hover:bg-gray-700 transition"
-              onClick={() => navigate(`/anime/${anime.mal_id}`)} // Navigasi ke DetailAnime.jsx
+              onClick={() => navigate(`/anime/${anime.mal_id}`)}
             >
               <img
                 src={anime.images.jpg.image_url}

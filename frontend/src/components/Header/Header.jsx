@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { Menu, X } from "lucide-react"; // Íconos de menú
+import { Menu, X } from "lucide-react";
 
 import logo from "../../assets/img/larafak-new.png";
 
@@ -13,7 +13,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    // <div className="bg-gray-700">
     <header className="py-10 bg-gray-900 border-b-1 border-white">
     <div className="flex flex-col items-center">
       <img src={logo} alt="logo" className="h-37 mb-4" /> 
@@ -34,8 +33,6 @@ const Header = () => {
         <Button className={menuButtonClass}>Genre-List</Button>
         <Button className={menuButtonClass}>Jadwal-Rilis</Button>
       </nav>
-  
-      {/* Hamburguer Button */}
       <button
         className="md:hidden text-white text-3xl z-50 mt-4"
         onClick={() => setIsOpen(!isOpen)}

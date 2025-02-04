@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import icon from "../../assets/arrow-right-circle.svg";
 import heroImage from "../../assets/img/hero-section.jpg";
 import axios from "axios";
@@ -6,13 +6,13 @@ import React, { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const [animes, setAnimes] = useState([]);
-  const navigate = useNavigate(); // Definisikan navigate di dalam komponen
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/animes")
       .then((response) => {
-        console.log(response.data); // Periksa struktur data
-        setAnimes(response.data.data.slice(0, 1)); // Sesuaikan dengan struktur data
+        console.log(response.data);
+        setAnimes(response.data.data.slice(0, 1));
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -33,7 +33,7 @@ const HeroSection = () => {
             <section key={anime.mal_id} className="relative flex flex-col md:flex-row text-white">
               <div className="md:w-1/2">
                 <button
-                  onClick={() => navigate("/popular")} // Mengarahkan ke /popular
+                  onClick={() => navigate("/popular")}
                   className="bg-slate-700 hover:bg-slate-900 text-white flex font-bold py-3 px-6 rounded mt-30"
                 >
                   View Full Site <img src={icon} alt="" className="ml-2" />

@@ -19,15 +19,13 @@ class AnimeController extends Controller
     public function getAnimeDetail($id)
     {
         return Cache::remember("anime_detail_{$id}", 3600, function () use ($id) {
-            //data anime lengkap
+
             $animeResponse = Http::get("https://api.jikan.moe/v4/anime/{$id}/full");
             $animeData = $animeResponse->successful() ? $animeResponse->json() : null;
 
-            //data video anime
             $videoResponse = Http::get("https://api.jikan.moe/v4/anime/{$id}/videos");
             $videoData = $videoResponse->successful() ? $videoResponse->json() : [];
 
-            //data episode
             $episodeResponse = Http::get("https://api.jikan.moe/v4/anime/{$id}/episodes");
             $episodeData = $episodeResponse->successful() ? $episodeResponse->json() : [];
 

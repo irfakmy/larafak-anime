@@ -12,7 +12,7 @@ const DetailAnime = () => {
     axios
       .get(`http://127.0.0.1:8000/api/anime/${id}`)
       .then((response) => {
-        console.log("API response: ", response.data); // Memeriksa data yang diterima
+        console.log("API response: ", response.data);
         setAnime(response.data.anime);
         setVideos(response.data.videos);
         setEpisodes(response.data.episodes || []);
@@ -24,7 +24,7 @@ const DetailAnime = () => {
 
   if (!anime) return <p>Loading...</p>;
 
-  // Urutkan episode berdasarkan urutan data
+
   const sortedEpisodes = [...episodes].sort((a, b) => a.number - b.number);
 
   return (
@@ -69,7 +69,6 @@ const DetailAnime = () => {
                   Episode {episode.number}: {episode.title || "No title available"}
                 </h3>
                 <p>{episode.synopsis || "No synopsis available"}</p>
-                {/* Anda bisa menambahkan link video atau lebih banyak informasi jika diperlukan */}
               </div>
             ))}
           </div>
