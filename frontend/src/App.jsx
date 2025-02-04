@@ -6,6 +6,8 @@ import About from "./components/About/About";
 import { Preheader } from "./components/Preheader/Preheader";
 import Index from "./views/index";
 import DetailAnime from "./views/DetailAnime/DetailAnime";
+import GenreList from "./views/DetailAnime/GenreList";
+// import GenreList from "./views/DetailAnime/JadwalRilis";
 
 const Layout = ({ children, showAbout = true }) => {
   return (
@@ -25,7 +27,7 @@ const App = () => {
       <Route
         path="/"
         element={
-          <Layout> 
+          <Layout>
             <HeroSection />
           </Layout>
         }
@@ -43,6 +45,14 @@ const App = () => {
         element={
           <Layout showAbout={false}>
             <DetailAnime />
+          </Layout>
+        }
+      />
+      <Route
+        path="/genre-list"
+        element={
+          <Layout showAbout={false}>
+            <GenreList />
           </Layout>
         }
       />

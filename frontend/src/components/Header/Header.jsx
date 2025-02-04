@@ -1,17 +1,16 @@
+// Header.jsx
 import React, { useState } from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom"; 
 import { Menu, X } from "lucide-react";
-
 import logo from "../../assets/img/larafak-new.png";
 
 const menuButtonClass =
   "text-lg font-medium text-white hover:text-orange-300 cursor-pointer hover:text-slate-800 active:text-white";
-const authButtonClass =
-  "bg-black hover:bg-yellow-600 text-white hover:text-black font-bold py-3 px-3 rounded cursor-pointer ";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate(); 
   return (
     <header className="py-10 bg-gray-900 border-b-1 border-white">
     <div className="flex flex-col items-center">
@@ -28,10 +27,10 @@ const Header = () => {
               placeholder="Cari anime..."
             />
           </form>
-        <Button className={menuButtonClass}>Home</Button>
-        <Button className={menuButtonClass}>Anime-List</Button>
-        <Button className={menuButtonClass}>Genre-List</Button>
-        <Button className={menuButtonClass}>Jadwal-Rilis</Button>
+        <button onClick={() => navigate("/")}className={menuButtonClass}>Home</button>
+        <button onClick={() => navigate("/popular")}className={menuButtonClass}>Anime-List</button>
+        <button onClick={() => navigate("/genre-list")}className={menuButtonClass}>Genre-List</button>
+        <button onClick={() => navigate("/Jadwal-rilis")}className={menuButtonClass}>Jadwal-Rilis</button>
       </nav>
       <button
         className="md:hidden text-white text-3xl z-50 mt-4"
@@ -42,8 +41,6 @@ const Header = () => {
 
     </div>
   </header>
-  // </div>
-  
   );
 };
 

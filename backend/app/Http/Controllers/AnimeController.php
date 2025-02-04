@@ -29,11 +29,23 @@ class AnimeController extends Controller
             $episodeResponse = Http::get("https://api.jikan.moe/v4/anime/{$id}/episodes");
             $episodeData = $episodeResponse->successful() ? $episodeResponse->json() : [];
 
+            $genreResponse = Http::get("https://api.jikan.moe/v4/genres/anime");
+            $genreData = $genreResponse -> successful() ? $genreResponse->json() :  [];
+            
             return [
                 'anime' => $animeData['data'] ?? [],
                 'videos' => $videoData['data']['promo']?? [],
-                'episodes' => $episodeData['data'] ?? []
+                'episodes' => $episodeData['data'] ?? [],
+                'genres' => $genreData['data'] ?? []
             ];
         });
     }
+    public function getAnimeGenres()
+    {
+        return Cache::remember('anime_genres', 3600, function () {
+            $response = Http::get("https://api.jikan.moe/v4/genres/anime");
+            return $response->successful() ? $response->json() : [];
+        });
+    }
+
 }
