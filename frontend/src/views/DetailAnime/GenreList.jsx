@@ -5,14 +5,14 @@ import icon from "../../assets/arrow-right-white.svg";
 
 const GenreList = () => {
   const navigate = useNavigate();
-  const [genres, setGenres] = useState([]); // Pastikan ini array kosong agar tidak error di awal
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/anime/genres")
       .then((response) => {
         console.log("API response: ", response.data);
-        setGenres(response.data.genres || []); // Perbaikan di sini
+        setGenres(response.data.genres || []);
       })
       .catch((error) => {
         console.error("Error fetching genre details: ", error);
